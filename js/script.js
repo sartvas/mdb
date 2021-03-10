@@ -21,6 +21,17 @@ const movieDB = {
         "Ла-ла лэнд",
         "Одержимость",
         "Скотт Пилигрим против..."
-    ]
+    ], 
+    movieSort: function () {
+        for (let i = 0; i < movieDB.movies.length; i++) {
+            console.log(movieDB.movies[i]);
+        }
+    },
 };
+
+
+
+document.getElementsByClassName('promo__adv')[0].remove();
+const promoGenre = document.getElementsByClassName('promo__genre');
+promoGenre[0].innerText = "Драма";
 
