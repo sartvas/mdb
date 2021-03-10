@@ -22,16 +22,41 @@ const movieDB = {
         "Одержимость",
         "Скотт Пилигрим против..."
     ], 
-    movieSort: function () {
-        for (let i = 0; i < movieDB.movies.length; i++) {
-            console.log(movieDB.movies[i]);
-        }
-    },
 };
 
+const adv = document.querySelectorAll(".promo__adv img"),
+      promoTitle = document.querySelector(".promo__adv-title"),
+      promoMenuItem = document.querySelectorAll(".promo__menu-item"),
+      poster = document.querySelector(".promo__bg"),
+      movieList = document.querySelector('.promo__interactive-list');
+      
+
+adv.forEach(item => {
+    item.remove();
+});
+
+promoTitle.textContent = "";
+promoMenuItem[0].textContent = "Фильмецы";
+promoMenuItem[1].textContent = "Серияльчики";
+promoMenuItem[2].textContent = "Мультяшки";
+ console.log(poster);
+
+ poster.style.backgroundImage = "url('img/bg.jpg')";
+
+ movieList.innerHTML = '';
+
+ movieDB.movies.sort();
+
+ movieDB.movies.forEach((films,i) => {
+        movieList.innerHTML += `
+        <li class="promo__interactive-item">${i + 1}. ${films}
+        <div class="delete"></div>
+        </li>
+        `;
+ });
 
 
-document.getElementsByClassName('promo__adv')[0].remove();
-const promoGenre = document.getElementsByClassName('promo__genre');
-promoGenre[0].innerText = "Драма";
+
+
+
 
